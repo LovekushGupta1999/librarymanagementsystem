@@ -1,0 +1,255 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+   
+body{
+    --main-color: #283526;
+    --primary-color: #888888;
+    --button-background: #4b709e;
+    --primary-button-background:#fe7649;
+    --background-color:#e2efff;
+}
+html{
+    font-size: 100%;
+}
+h1,h2{
+font-family: Avenir LT Std;
+color: var(--main-color);
+
+}
+h3,h4{
+    font-family: "muli";
+    color: var(--main-color);
+
+}
+h3{
+    font-weight: 750;
+    font-size: 2.2rem;
+    line-height: 6rem;
+    text-transform: capitalize;
+}
+a, p,li,button{
+    font-family: "muli";
+    color: var(--primary-color);
+
+}
+p{
+    font-size: 1.1rem;
+    line-height: 150%;
+    padding: .3rem 0;
+    font-style: normal;
+    font-weight: normal;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+    // cursor: pointer;
+
+
+}
+button{
+    padding: 1rem 1rem;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    color: #fff;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-family:Avenir LT Std;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.6rem;
+    border: 1px solid #01ca8b;
+    background-color: var(--button-background);
+    box-shadow: 0 0 0 4em #01ca8b inset;
+    transition: all 300ms ease ;
+
+}
+header{
+    padding: 0 2rem;
+}
+//-----------------left-side-menu scss---------------------
+
+#nav{
+    background: #022e64;
+    
+    input{
+    display: none;
+    }
+.checkbtn{
+     display: none;
+     float: right;
+     z-index: 99;
+    }
+}
+.left-side-menu{
+    width: 50%;
+      float: left;
+      padding: .7rem;
+      h1{
+        float: left;
+        font-size: 2rem;
+      }
+      img{
+        width: 10%;
+      }
+}
+//----------------right-side-menu scss----------------------
+.right-side-menu{
+    width: 40%;
+    display: flex;
+    float: right;
+
+    a{
+        margin-left: 2rem;
+        margin-top: .8rem;
+
+        li{
+            font-weight: 900;
+            box-sizing: border-box;
+            transition: all 0.2s;
+             }
+            :hover{
+            color: var(--button-background);
+             }
+    
+        .btn_1{
+            // background-color: var(--button-background);
+        //     color: #fff;
+            border: .1rem solid blue;
+            border-radius: 5px;
+            padding: .2rem 1rem;
+        }
+        .btn_1:hover {
+            background-color: var(--primary-color);
+            // color: var(--button-background);
+            color: #fff;
+        }
+      
+    }
+}
+
+// ............................................Media Query...............................
+
+
+@media (max-width: 1024px){
+   
+    nav{
+
+    .checkbtn{
+         display: block;
+         float: right;
+         z-index: 99;
+         margin: 1.3rem;
+         font-size: 1.5rem;
+        }
+    }
+    
+    .hero-section{
+        background-size: 100% ;
+        height: 30rem;
+        
+    }
+    .menu{
+        display: none;
+    }
+
+    .left-side-menu{
+        img{
+            width: 3rem;
+        }
+    }
+    
+
+    .right-side-menu{
+        position: fixed;
+
+        width: 100%;
+        margin-top: 3rem;
+        display: block;
+        left: -100%;
+        background-color: #2c3e50;
+        text-align: center;
+        transition: all 0.4s;
+ 
+      
+       a{
+            margin-left: 1rem;
+            margin-top: .8rem;
+    
+            li{
+            font-weight: 900;
+            box-sizing: border-box;
+            transition: all 0.2s;
+             }
+            :hover{
+            color: var(--button-background);
+             }
+        }
+
+
+    }   #menu:checked ~.right-side-menu{
+        left: 0;
+        position: absolute;
+        z-index: 99999;
+    }
+
+    .footer-sec1{
+        text-align: center;
+        h1{
+            text-align: center;
+        }
+    }
+}
+
+
+
+@media (max-width: 768px){
+    
+    
+    html{
+        font-size: 60%;
+    }
+    .footer-sec1{
+        text-align: center;
+        h1{
+            text-align: center;
+        }
+    }
+}
+
+
+@media (max-width: 425px){
+   
+   
+    html{
+        font-size: 50%;
+    }
+    .left-side-menu{
+       
+        img{
+            
+            width: 2rem;
+        }
+    }
+    .footer-sec1{
+        text-align: center;
+        h1{
+            text-align: center;
+        }
+    }
+    .left-side-hero-section{
+        .text-group{
+
+            p{display: none;}
+        }
+    }
+}
+
+  
