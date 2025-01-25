@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-<body>
-<header>
+<body >
+<header >
   <nav id="nav">
        <input type="checkbox" id="menu">
        <label for="menu" class="checkbtn"> <i class="fa-solid fa-bars"></i></label>
@@ -21,29 +21,57 @@
       </div>
       
      
-      <div class="right-side-menu">
-          <a href="#"><li>Admin:</li></a>
-          <a href="#"><li>Admin Profile</li></a>
-          <a href="#"><li>LOGOUT</li></a>
+      <div class="right-side-menu menu">
+          <li id="adminId"><a href=""></a></li>
+          <li class="submenu">
+            <a href="#">Admin Profile</a>
+            <ul class="submenu-items">
+                <li><a href="#">View Admins</a></li>
+                <li><a href="#" onclick="addAdminWindow()">Add Admin</a></li>
+              <li><a href="#">Change Password</a></li>
+            </ul>
+          </li>
+          <li><a href="#" onclick="adminwindow()">LOGOUT</a></li>
           <!-- <a href="#"><li>FAQ</li></a>
           <a href="#"><li>Contacts -->
           <!-- <a href="#"><li><i class="fa-brands fa-facebook-f"></i></li></a>
           <a href="#"><li><i class="fa-brands fa-twitter"></i></li></a> 
           <a href="#"><li><i class="fa-solid fa-magnifying-glass"></i></li></a> -->
-        </li></a>
+       
       </div>
   </nav>
 </header>
-<div id="dashboardbar">
-    <li>Books</li>
-    <li>Authors</li>
-    <li>Categories</li>
+<div id="dashboardbar" class="menu">
+    <li class="submenu">
+        <a href="#">Books</a>
+        <ul class="submenu-items">
+            <li><a href="#">View Admins</a></li>
+            <li><a href="#" >Add Admin</a></li>
+          <li><a href="#">Change Password</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Authors</a>
+        <ul class="submenu-items">
+            <li><a href="#">View Admins</a></li>
+            <li><a href="#" >Add Admin</a></li>
+          <li><a href="#">Change Password</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Categories</a>
+        <ul class="submenu-items">
+            <li><a href="#">View Admins</a></li>
+            <li><a href="#">Add Admin</a></li>
+          <li><a href="#">Change Password</a></li>
+        </ul>
+      </li>
 </div>
 <div id="bigbox">
     <div class="box">
        <div id="heading">Register User</div> 
        <p>NO of Users:</p>
-       <button id="btnlib1">View Register User</button>
+       <button id="btnlib1"><a href="login.html">View Register User</a></button>
     </div>
     <div class="box">
         <div id="heading">Total Book</div> 
@@ -56,7 +84,7 @@
         <button id="btnlib3">View All Books</button>
      </div>
      <div class="box">
-        <div id="heading">Author</div> 
+        <div id="heading">Authors</div> 
         <p>NO of Author:</p>
         <button id="btnlib4">View All Author</button>
      </div>
@@ -73,4 +101,9 @@
 
 
 </div>
-</body></html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="script.js"></script>
+</body>
+
+</html>
