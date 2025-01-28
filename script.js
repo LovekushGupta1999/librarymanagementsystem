@@ -299,7 +299,7 @@ function addAdminWindow(){
         // icon: 'info',
         confirmButtonText: 'Close'
     });
-};
+}
 //-------------------------------------------set data in database--------------------------------
 async function InsertAdmindata(){
   let admindata=
@@ -366,3 +366,160 @@ async function fetchAdmindata(){
         return false;
     
         }
+
+//------------------------------------library data insert window----------------------------------------
+function librarywindow(){
+
+  Swal.fire({
+    title: 'INSERT BOOK DATA  ',
+    html:` <div id="editform">
+   <div class="form-container">
+
+    <label for="bookn">Book Name</label>
+    <input type="text"  id="bookn"><br>
+
+    <label for="author">Author</label>
+    <input type="text" id="author"><br>
+
+     <label for="category">Category</label>
+    <input type="text"   id="category"><br>
+
+    <label for="date1">Publication Year</label>
+    <input type="number"  id="date1"><br>
+
+    <label for="bnumber">Number of Books</label>
+    <input type="number"  id="bnumber"><br>
+
+    <button id="updatebtn" onclick="insertlibraryData()">Update</button>
+</div>
+</div>
+    `,
+    // icon: 'info',
+    confirmButtonText: 'Close'
+});
+}
+// ------------------------------------ library data inserted-------------------------------------------
+
+async function insertlibraryData() {
+  let libraryData={
+     BookName:document.getElementById("bookn").value,
+     Author:document.getElementById("author").value,
+     Category:document.getElementById("category").value,
+     PublicationYear :document.getElementById("date1").value,
+     NumberofBooks:document.getElementById("bnumber").value
+    //  bookName:document.getElementById("").value,
+  };
+
+  fetch("http://localhost:3000/libraryData",{
+    method:"POST",
+    headers:{'content-type':'application/json'},
+    body: JSON.stringify(libraryData)
+
+  }).then(r=>Swal.fire({
+    title: "Submitted",
+    text: "You clicked the button!",
+    icon: "success",
+    confirmButtonText: "ok"
+   
+  }));
+ 
+  return true;
+
+  
+}
+
+//--------------------------------------------show books details-------------------------------------
+
+async function displayBook(){
+  Swal.fire({
+    title: 'books data ',
+    html: `<div id="table_data">
+    <table style="border= 2px solid black">
+    <thead> 
+    <th>Book Name</th>
+    <th>Author</th>
+    <th>Category</th>
+    <th>Publication</th>
+    <th>Number of Books</th>
+    <th>Operation</th>
+    </thead>
+
+    <tbody id="showdata">  </tbody>
+    </table>
+    </div>
+    `,
+    // icon: 'info',
+    confirmButtonText: 'Close'
+});
+
+
+  
+  let a= await fetch("http://localhost:3000/libraryData");
+  let b= await a.json();
+  let database= b.map((data)=>
+`
+
+<tr>
+
+<td>${data.BookName}</td>
+<td>${data.Author}</td>
+<td>${data.Category}</td>
+<td>${data.PublicationYear}</td>
+<td>${data.NumberofBooks}</td>
+<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
+
+</tr>
+</table>`).join(" ")
+document.getElementById("showdata").innerHTML=database;
+
+
+
+}
+
+//------------------------------------display Author details-------------------------
+async function displayAuthor(){
+  Swal.fire({
+    title: 'Authors data ',
+    html: `<div id="table_data">
+    <table style="border= 2px solid black">
+    <thead> 
+    <th>Author</th>
+    <th>Category</th>
+    <th>Publish Books Name</th>
+    <th>Publication</th>
+    <th>Operation</th>
+    </thead>
+
+    <tbody id="showdata">  </tbody>
+    </table>
+    </div>
+    `,
+    // icon: 'info',
+    confirmButtonText: 'Close'
+});
+
+
+  
+  let a= await fetch("http://localhost:3000/libraryData");
+  let b= await a.json();
+  let database= b.map((data)=>
+`
+
+<tr>
+
+<td>${data.Author}</td>
+<td>${data.Category}</td>
+<td>${data.BookName}</td>
+<td>${data.PublicationYear}</td>
+
+<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
+
+</tr>
+</table>`).join(" ")
+document.getElementById("showdata").innerHTML=database;
+
+
+
+}

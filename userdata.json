@@ -26,8 +26,26 @@
       "cpass": "789"
     },
     {
-        "email":"ytfgjf@123"
-
+      "email": "ytfgjf@123",
+      "id": "214c"
+    }
+  ],
+  "libraryData": [
+    {
+      "id": "e3cd",
+      "bookName": "math",
+      "Author": "love gupta",
+      "Category": "mathematics",
+      "PublicationYear": "2026",
+      "NumberofBooks": "10"
+    },
+    {
+      "id": "d2f8",
+      "BookName": "science",
+      "Author": "kush",
+      "Category": "Science",
+      "PublicationYear": "2027",
+      "NumberofBooks": "15"
     }
   ]
 }

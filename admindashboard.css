@@ -439,3 +439,145 @@ p>a{
       margin-right: 25px;
   }
 }
+
+
+/* -----------------------------------library data window css----------------------------------------- */
+#editform{
+  width: 100%;
+  /* height: auto; */
+  position: relative;
+  
+text-align: left;
+
+}
+
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+#bookn, 
+#author, 
+#category,
+#date1, 
+#bnumber{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+#bookn:focus,
+#author:focus,
+#category:focus,
+#date1:focus,
+#bnumber:focus{
+  border-color: #4CAF50;
+  outline: none;
+}
+
+input[readonly] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 5px;
+  border: none;
+  padding: 20px 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#table_data {
+  width: 100%;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 2px 5px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 9px;
+}
+
+td:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #e9f7df;
+}
+
+
+
+.operation {
+  color: #007bff;
+  font-weight: bold;
+}
+table button {
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 2px;
+  border: none;
+  padding: 4px 2px;
+  border-radius: 5px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+ table button:hover {
+  background-color: #45a049;
+}
