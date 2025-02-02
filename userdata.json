@@ -1,33 +1,109 @@
 {
-  "user": [],
-  "admin": [
+  "user": [
     {
-      "email": "ioeuroeor@142",
-      "pass": "12812"
-    },
+      "id": "5bba",
+      "Uname": "golu",
+      "contactno": "7477218484",
+      "email": "love@111",
+      "cpass": "123"
+    }
+  ],
+  "admin": [
     {
       "id": "6f13",
       "email": "lovekush@123",
+      "pass": "123",
+      "cpass": "123"
+    },
+    {
+      "id": "5df3",
+      "email": "golu13@14",
       "pass": "123",
       "cpass": "123"
     }
   ],
   "libraryData": [
     {
-      "id": "e3cd",
-      "bookName": "math",
-      "Author": "love gupta",
-      "Category": "mathematics",
-      "PublicationYear": "2026",
+      "id": "6d22",
+      "BookName": "ppp",
+      "Author": "mr.love",
+      "Category": "AI",
+      "PublicationYear": "2029",
       "NumberofBooks": "10"
     },
     {
-      "id": "d2f8",
-      "BookName": "science",
-      "Author": "kush",
-      "Category": "Science",
-      "PublicationYear": "2027",
-      "NumberofBooks": "15"
+      "id": "c5be",
+      "BookName": "rdhu",
+      "Author": " chgk",
+      "Category": "fyjfkh",
+      "PublicationYear": "5498",
+      "NumberofBooks": "47"
+    },
+    {
+      "id": "cfe1",
+      "BookName": "etfjkj",
+      "Author": "fhjhl",
+      "Category": "dhgkhl",
+      "PublicationYear": "4577",
+      "NumberofBooks": "354"
+    },
+    {
+      "id": "1f57",
+      "BookName": "dhdyfk",
+      "Author": "fjgi",
+      "Category": "thdku",
+      "PublicationYear": "5475",
+      "NumberofBooks": "34"
+    },
+    {
+      "id": "1b5c",
+      "BookName": "dfhk",
+      "Author": "gcnv,",
+      "Category": "hfju",
+      "PublicationYear": "7657",
+      "NumberofBooks": "36"
+    },
+    {
+      "id": "d63a",
+      "BookName": "dfhk",
+      "Author": "gcnv,",
+      "Category": "hf",
+      "PublicationYear": "7657",
+      "NumberofBooks": "3"
+    },
+    {
+      "id": "3ada",
+      "BookName": "etfjkj",
+      "Author": "fhjhl",
+      "Category": "dhgkhl",
+      "PublicationYear": "4577",
+      "NumberofBooks": "354"
+    }
+  ],
+  "issuebook": [
+    {
+      "id": "011a",
+      "BookName": "future",
+      "Author": "mr.love",
+      "Category": "AI",
+      "PublicationYear": "2029",
+      "studentid": "rakesh0810"
+    },
+    {
+      "id": "06db",
+      "BookName": "ppp",
+      "Author": "mr.love",
+      "Category": "AI",
+      "PublicationYear": "2029",
+      "studentid": "rakesh0810"
+    },
+    {
+      "id": "f321",
+      "BookName": "ttt",
+      "Author": "dyug",
+      "Category": "uiio",
+      "PublicationYear": "4754",
+      "studentid": "teeyf7"
     }
   ]
 }

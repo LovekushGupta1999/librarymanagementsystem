@@ -1,116 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="admindashboard.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-<body>
-<header >
-  <nav id="nav">
-       <input type="checkbox" id="menu">
-       <label for="menu" class="checkbtn"> <i class="fa-solid fa-bars"></i></label>
-      <div class="left-side-menu">
+    <link rel="stylesheet" href="admindashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=more_vert"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <nav id="nav">
+        <input type="checkbox" id="menu" />
+        <label for="menu" class="checkbtn">
+          <i class="fa-solid fa-bars"></i></label>
+        <div class="left-side-menu">
           <h1>STUDY POINT LIBRARY</h1>
-          <img src="images/R.png" alt="">
+          <img src="images/R.png" alt="" />
+        </div>
 
-      </div>
-      
-     
-      <div class="right-side-menu menu">
+        <div class="right-side-menu menu">
           <li id="userId"><a href=""></a></li>
 
           <li class="submenu">
             <a href="#">User Profile</a>
             <ul class="submenu-items">
-                <li><a href="#">View user</a></li>
-                <!-- <li><a href="#"></a></li> -->
+              <li><a href="#" onclick="accountdetails()">Account</a></li>
+              <!-- <li><a href="#"></a></li> -->
               <li><a href="#">Change Password</a></li>
             </ul>
           </li>
           <li><a href="#">FAQ</a></li>
-          <li ><a href="#" onclick="UserRegisterwindow()">Register</a></li>
+          <li><a href="#" onclick="UserRegisterwindow()">Register</a></li>
           <li><a href="admindashboard.html">Admin login</a></li>
 
-
-
-          <li><a href="#" >LOGOUT</a></li>
+          <li><a href="#" onclick="Userwindow()">LOGOUT</a></li>
           <!-- <a href="#"><li>FAQ</li></a>
           <a href="#"><li>Contacts -->
           <!-- <a href="#"><li><i class="fa-brands fa-facebook-f"></i></li></a>
           <a href="#"><li><i class="fa-brands fa-twitter"></i></li></a> 
           <a href="#"><li><i class="fa-solid fa-magnifying-glass"></i></li></a> -->
-       
-      </div>
-  </nav>
-</header>
-<div id="dashboardbar" class="menu">
-    <li class="submenu">
+        </div>
+      </nav>
+    </header>
+    <div id="dashboardbar" class="menu">
+      <li class="submenu">
         <a href="#">Books</a>
         <ul class="submenu-items">
-            <li><a href="#" onclick="displayBook()">View Books</a></li>
-            <li><a href="#" onclick="librarywindow()">Add Books</a></li>
+          <li><a href="#" onclick="displayBook()">View Books</a></li>
+          <li><a href="#" onclick="librarywindow()">Add Books</a></li>
           <li><a href="#" onclick="displayBook()">Update Books</a></li>
         </ul>
       </li>
       <li class="submenu">
         <a href="#">Authors</a>
         <ul class="submenu-items">
-            <li><a href="#" onclick="displayAuthor()">View Authors</a></li>
-            <!-- <li><a href="#" >Add Authors</a></li>-->
+          <li><a href="#" onclick="displayAuthor()">View Authors</a></li>
+          <!-- <li><a href="#" >Add Authors</a></li>-->
           <li><a href="#" onclick="displayAuthor()">Update Authors</a></li>
         </ul>
       </li>
       <li class="submenu">
         <a href="#">Categories</a>
         <ul class="submenu-items">
-            <li><a href="#">View Categories</a></li>
-            <li><a href="#">Add Categories</a></li>
+          <li><a href="#">View Categories</a></li>
+          <li><a href="#">Add Categories</a></li>
           <li><a href="#">Update Categories</a></li>
         </ul>
       </li>
-</div>
-<div id="bigbox">
-    <div class="box">
-       <div id="heading">Register User</div> 
-       <p>NO of Users: <span id="nouser"></span></p>
-       <button id="btnlib1"><a href="login.html">View Register User</a></button>
     </div>
-    <div class="box">
-        <div id="heading">Total Book</div> 
+    <div id="bigbox">
+      <div class="box">
+        <div id="heading">PROFILE</div>
+        <p>My Account <span id="nouser"></span></p>
+        <a href="login.html"><button id="btnlib1">View Account</button></a>
+      </div>
+      <div class="box">
+        <div id="heading">My IssueBooks</div>
         <p>NO of Books: <span id="nobook"></span></p>
-        <button id="btnlib2">View All Book</button>
-     </div>
-     <div class="box">
-        <div id="heading">Book Categories</div> 
+        <button id="btnlib2" onclick="displayissuedBook()">View All Book</button>
+      </div>
+      <div class="box">
+        <div id="heading">TestBooks</div>
         <p>NO of Categories: <span id="nocate"></span></p>
-        <button id="btnlib3">View All Books</button>
-     </div>
-     <div class="box">
-        <div id="heading">Authors</div> 
+        <button id="btnlib3">View TestBooks</button>
+      </div>
+      <div class="box">
+        <div id="heading">MockTests</div>
         <p>NO of Author: <span id="noauthor"></span></p>
-        <button id="btnlib4">View All Author</button>
-     </div>
-     <div class="box">
-        <div id="heading">Book Issue</div> 
-        <p>NO of Book Issues:</p>
-        <button id="btnlib5">View All Issue Book</button>
-     </div>
-     <div class="box">
-        <div id="heading">Book Not Returned</div> 
+        <button id="btnlib4">View MockTests</button>
+      </div>
+      <div class="box">
+        <div id="heading">Magzines</div>
+        <p>Today magzines</p>
+        <button id="btnlib5">View All magzines</button>
+      </div>
+      <!-- <div class="box">
+        <div id="heading">Book Not Returned</div>
         <p>Not Returned Books:</p>
         <button id="btnlib6">View Not Returned Books</button>
-     </div>
+      </div> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-</div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

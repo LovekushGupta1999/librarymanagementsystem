@@ -105,7 +105,7 @@
   }
   
   .right-side-menu {
-    width: 40%;
+    width: 60%;
     display: flex;
     margin-left: 10rem;
   }
@@ -166,7 +166,7 @@ padding-left: 50px;
     align-items: center;
     height: 50px;
     padding: 1rem;
-    background-color: #f3eaea4d;
+    background-color: #f3eaeac0;
 }
 .box p , button{
      margin-left: 1rem;
@@ -228,6 +228,10 @@ nav {
     background-color: #e7e5e5;
   }
   #adminId{
+    position: relative;
+    top: 12px;
+  }  
+  #userId{
     position: relative;
     top: 12px;
   }  
@@ -478,7 +482,8 @@ label {
 #author, 
 #category,
 #date1, 
-#bnumber{
+#bnumber,
+#stuid{
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -492,7 +497,8 @@ label {
 #author:focus,
 #category:focus,
 #date1:focus,
-#bnumber:focus{
+#bnumber:focus,
+#stuid:focus{
   border-color: #4CAF50;
   outline: none;
 }
@@ -505,7 +511,7 @@ input[readonly] {
 button {
   background-color: #4CAF50;
   color: white;
-  margin-top: 5px;
+  margin-top: 2px;
   border: none;
   padding: 20px 8px;
   border-radius: 5px;
@@ -539,7 +545,7 @@ th {
   color: white;
   padding: 2px 5px;
   text-align: center;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -548,7 +554,7 @@ td {
   padding: 2px 5px;
   text-align: center;
   border-bottom: 1px solid #ddd;
-  font-size: 9px;
+  font-size: 15px;
 }
 
 td:hover {

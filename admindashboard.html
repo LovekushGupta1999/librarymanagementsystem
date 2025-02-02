@@ -43,15 +43,15 @@
 </header>
 <div id="dashboardbar" class="menu">
     <li class="submenu">
-        <a href="#">Books</a>
+        <a href="#">Books &nbsp;<i class="fa-solid fa-caret-down"></i></a>
         <ul class="submenu-items">
             <li><a href="#" onclick="displayBook()">View Books</a></li>
-            <li><a href="#" onclick="librarywindow()">Add Books</a></li>
+            <li><a href="#" onclick="addbookwindow()">Add Books</a></li>
           <li><a href="#" onclick="displayBook()">Update Books</a></li>
         </ul>
       </li>
       <li class="submenu">
-        <a href="#">Authors</a>
+        <a href="#">Authors  &nbsp; <i class="fa-solid fa-caret-down"></i></a>
         <ul class="submenu-items">
             <li><a href="#" onclick="displayAuthor()">View Authors</a></li>
             <!-- <li><a href="#" >Add Authors</a></li>-->
@@ -59,44 +59,47 @@
         </ul>
       </li>
       <li class="submenu">
-        <a href="#">Categories</a>
+        <a href="#">Categories  &nbsp; <i class="fa-solid fa-caret-down"></i></a>
         <ul class="submenu-items">
-            <li><a href="#">View Categories</a></li>
-            <li><a href="#">Add Categories</a></li>
-          <li><a href="#">Update Categories</a></li>
+            <li><a href="#" onclick="displaycategory()">View Categories</a></li>
+            <li><a href="#" onclick="displaycategory()">Add Categories</a></li>
+          <li><a href="#" onclick="displaycategory()">Update Categories</a></li>
         </ul>
       </li>
+      <li class="submenu">
+        <a href="#" onclick="issuebookwindow()">issue book &nbsp;</a>
+       </li>
 </div>
 <div id="bigbox">
     <div class="box">
        <div id="heading">Register User</div> 
        <p>NO of Users: <span id="nouser"></span></p>
-       <button id="btnlib1"><a href="login.html">View Register User</a></button>
+       <a href="#" onclick="displayuser()"><button id="btnlib1">View Register User</button></a>
     </div>
     <div class="box">
         <div id="heading">Total Book</div> 
         <p>NO of Books: <span id="nobook"></span></p>
-        <button id="btnlib2">View All Book</button>
+        <button id="btnlib2" onclick="displayBook()">View Books</button>
      </div>
      <div class="box">
         <div id="heading">Book Categories</div> 
-        <p>NO of Categories: <span id="nocate"></span></p>
-        <button id="btnlib3">View All Books</button>
+        <p>NO of Categories: <span id="nocategory"></span></p>
+        <button id="btnlib3" onclick="displaycategory()">View Categories</button>
      </div>
      <div class="box">
         <div id="heading">Authors</div> 
         <p>NO of Author: <span id="noauthor"></span></p>
-        <button id="btnlib4">View All Author</button>
+        <button id="btnlib4" onclick="displayAuthor()">View Authors</button>
      </div>
      <div class="box">
         <div id="heading">Book Issue</div> 
-        <p>NO of Book Issues:</p>
-        <button id="btnlib5">View All Issue Book</button>
+        <p>NO of Book Issues:<span id="noissuebook"></span></p>
+        <button id="btnlib5" onclick="issuebookwindow()">Issue Books</button>
      </div>
      <div class="box">
         <div id="heading">Book Not Returned</div> 
-        <p>Not Returned Books:</p>
-        <button id="btnlib6">View Not Returned Books</button>
+        <p>Not Returned Books: <span id="issuebook"></span></p>
+        <button id="btnlib6" onclick="displayissuedBook()">View Not Returned Books</button>
      </div>
 
 
