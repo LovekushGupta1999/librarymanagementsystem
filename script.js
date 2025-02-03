@@ -1,5 +1,8 @@
 //-----------------------------Register admin  function------------------------------------------------
 function addAdminWindow(){
+  let adminid=document.getElementById("adminId").innerText
+
+  if(adminid!=""){
   Swal.fire({
       title: 'REGISTER ADMIN',
       html: `
@@ -8,6 +11,11 @@ function addAdminWindow(){
   <div class="continer">
       
       <form action="#" onsubmit=" return InsertAdmindata()">
+      <div class="from-group">
+              <input type="text" id="input" required>
+            <label for="input">Name :</label>
+            <i class="fa-regular fa-envelope"></i>
+          </div>
           <div class="from-group">
               <input type="email" id="input1" required>
             <label for="input1">Email :</label>
@@ -48,11 +56,13 @@ function addAdminWindow(){
       confirmButtonText: 'Close'
   });
 }
+}
 
 //-------------------------------------------set data in database--------------------------------
 async function InsertAdmindata(){
   let admindata=
         {
+            adname: document.getElementById("input").value,
             email: document.getElementById("input1").value,
             pass: document.getElementById("input2").value,
             cpass: document.getElementById("input3").value
@@ -195,7 +205,7 @@ function addbookwindow(){
   Swal.fire({
     title: 'INSERT BOOK DATA  ',
     html:` <div id="editform">
-   <div class="form-container">
+   <form class="form-container"  onsubmit= " return insertlibraryData()">
 
     <label for="bookn">Book Name</label>
     <input type="text"  id="bookn"><br>
@@ -212,8 +222,8 @@ function addbookwindow(){
     <label for="bnumber">Number of Books</label>
     <input type="number"  id="bnumber"><br>
 
-    <button id="updatebtn" onclick="insertlibraryData()">Issue</button>
-</div>
+    <button id="updatebtn" type="submit" >Update</button>
+</form>
 </div>
     `,
     // icon: 'info',
@@ -224,6 +234,7 @@ function addbookwindow(){
 // ------------------------------------ library data inserted-------------------------------------------
 
 async function insertlibraryData() {
+  // e.preventDefault();
   let libraryData={
      BookName:document.getElementById("bookn").value,
      Author:document.getElementById("author").value,
@@ -245,7 +256,8 @@ async function insertlibraryData() {
     confirmButtonText: "ok"
    
   }));
- 
+  
+  preventDefault();
   return true;
 
   
@@ -276,7 +288,7 @@ function issuebookwindow(){
     <label for="stuid">Student Id</label>
     <input type="text"  id="stuid"><br>
 
-    <button id="updatebtn" onclick="issuebookData()">Update</button>
+    <button id="updatebtn" onclick="issuebookData()">Issued</button>
 </div>
 </div>
     `,
@@ -371,17 +383,17 @@ document.getElementById("showdata").innerHTML=database;
 // ........................Deletion data function..................................
 
 
-// function delete_data(id){
-//   fetch(`http://localhost:3000/libraryData/${id}`,{
-//       method: "DELETE"
-//   }).then(r=>Swal.fire({
-//     title: "DELETED",
-//     text: "You clicked the button!",
-//     icon: "success",
-//     confirmButtonText: "ok"
+function delete_data(id){
+  fetch(`http://localhost:3000/libraryData/${id}`,{
+      method: "DELETE"
+  }).then(r=>Swal.fire({
+    title: "DELETED",
+    text: "You clicked the button!",
+    icon: "success",
+    confirmButtonText: "ok"
    
-//   }));
-// }
+  }));
+}
 
 //--------------------------------------------show issued books details-------------------------------------
 
@@ -581,6 +593,57 @@ async function displayuser(){
 
 <td>${data.Uname}</td>
 <td>${data.contactno}</td>
+<td>${data.email}</td>
+<td>${data.cpass}</td>
+<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
+
+</tr>
+</table>`).join(" ")
+document.getElementById("showdata").innerHTML=database;
+
+  }
+
+}
+
+//-----------------------------------------display admin data-------------------------
+async function displayadmin(){
+  let adminid=document.getElementById("adminId").innerText
+
+  if(adminid!=""){
+  Swal.fire({
+    title: 'Admin data ',
+    width:'80%',
+    html: `<div id="table_data">
+    <table style="border= 2px solid black">
+    <thead> 
+    <th>Admin Id</th>
+    
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Operation</th>
+    </thead>
+
+    <tbody id="showdata">  </tbody>
+    </table>
+    </div>
+    `,
+    // icon: 'info',
+    confirmButtonText: 'Close'
+});
+
+
+  
+  let a= await fetch("http://localhost:3000/admin");
+  let b= await a.json();
+  let database= b.map((data)=>
+`
+
+<tr>
+
+<td>${data.id}</td>
+<td>${data.adname}</td>
 <td>${data.email}</td>
 <td>${data.cpass}</td>
 <td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>

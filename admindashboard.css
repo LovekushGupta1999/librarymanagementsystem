@@ -275,7 +275,7 @@ body{
 }
 .continer{
   width: 140%;
-  height: 350px;
+  height: auto;
   margin-top: 0rem;
   margin-left: -8rem;
   margin-right: 4rem;

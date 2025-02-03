@@ -6,104 +6,181 @@
       "contactno": "7477218484",
       "email": "love@111",
       "cpass": "123"
+    },
+    {
+      "id": "2ce2",
+      "Uname": "golu",
+      "contactno": "7477218484",
+      "email": "golu@111",
+      "cpass": "147"
+    },
+    {
+      "id": "fdbb",
+      "Uname": "Mohit sharma",
+      "contactno": "7458784574",
+      "email": "mohit@123",
+      "cpass": "123"
+    },
+    {
+      "id": "b3dd",
+      "Uname": "sakshi singh",
+      "contactno": "7485748545",
+      "email": "sakshi@123",
+      "cpass": "123"
     }
   ],
   "admin": [
     {
-      "id": "6f13",
-      "email": "lovekush@123",
+      "id": "4295",
+      "adname": "lovekush",
+      "email": "golu13@20",
       "pass": "123",
       "cpass": "123"
     },
     {
-      "id": "5df3",
-      "email": "golu13@14",
+      "id": "4a64",
+      "adname": "raj",
+      "email": "raj@123",
+      "pass": "123",
+      "cpass": "123"
+    },
+    {
+      "id": "21c0",
+      "adname": "Minakshi singh",
+      "email": "mina@123",
+      "pass": "123",
+      "cpass": "123"
+    },
+    {
+      "id": "8385",
+      "adname": "sahil",
+      "email": "sahil@123",
       "pass": "123",
       "cpass": "123"
     }
   ],
   "libraryData": [
     {
-      "id": "6d22",
-      "BookName": "ppp",
-      "Author": "mr.love",
-      "Category": "AI",
-      "PublicationYear": "2029",
+      "id": "ddd0",
+      "BookName": "math",
+      "Author": "love gupta",
+      "Category": "mathematics",
+      "PublicationYear": "2026",
       "NumberofBooks": "10"
     },
     {
-      "id": "c5be",
-      "BookName": "rdhu",
-      "Author": " chgk",
-      "Category": "fyjfkh",
-      "PublicationYear": "5498",
-      "NumberofBooks": "47"
+      "id": "93f2",
+      "BookName": "English",
+      "Author": "kush",
+      "Category": "English",
+      "PublicationYear": "2026",
+      "NumberofBooks": "50"
     },
     {
-      "id": "cfe1",
-      "BookName": "etfjkj",
-      "Author": "fhjhl",
-      "Category": "dhgkhl",
-      "PublicationYear": "4577",
-      "NumberofBooks": "354"
+      "id": "757f",
+      "BookName": "computer fundamental",
+      "Author": "lovekush gupta",
+      "Category": "computer science",
+      "PublicationYear": "2027",
+      "NumberofBooks": "100"
     },
     {
-      "id": "1f57",
-      "BookName": "dhdyfk",
-      "Author": "fjgi",
-      "Category": "thdku",
-      "PublicationYear": "5475",
-      "NumberofBooks": "34"
+      "id": "ae44",
+      "BookName": "sanskrit",
+      "Author": "sanjay",
+      "Category": "sanskrit",
+      "PublicationYear": "2026",
+      "NumberofBooks": "50"
     },
     {
-      "id": "1b5c",
-      "BookName": "dfhk",
-      "Author": "gcnv,",
-      "Category": "hfju",
-      "PublicationYear": "7657",
-      "NumberofBooks": "36"
+      "id": "5c5b",
+      "BookName": "Computer Generation",
+      "Author": "shiva thakur",
+      "Category": "computer science",
+      "PublicationYear": "2028",
+      "NumberofBooks": "100"
     },
     {
-      "id": "d63a",
-      "BookName": "dfhk",
-      "Author": "gcnv,",
-      "Category": "hf",
-      "PublicationYear": "7657",
-      "NumberofBooks": "3"
+      "id": "96c8",
+      "BookName": "operating system",
+      "Author": "shiva thakur",
+      "Category": "computer science",
+      "PublicationYear": "2028",
+      "NumberofBooks": "100"
     },
     {
-      "id": "3ada",
-      "BookName": "etfjkj",
-      "Author": "fhjhl",
-      "Category": "dhgkhl",
-      "PublicationYear": "4577",
-      "NumberofBooks": "354"
+      "id": "b66a",
+      "BookName": "DBMS",
+      "Author": "shanvi devi",
+      "Category": "computer science",
+      "PublicationYear": "2028",
+      "NumberofBooks": "100"
+    },
+    {
+      "id": "13d5",
+      "BookName": "DBMS",
+      "Author": "shanvi devi",
+      "Category": "computer science",
+      "PublicationYear": "2028",
+      "NumberofBooks": "100"
+    },
+    {
+      "id": "b794",
+      "BookName": "DBMS",
+      "Author": "shanvi devi",
+      "Category": "computer science",
+      "PublicationYear": "2030",
+      "NumberofBooks": "100"
+    },
+    {
+      "id": "8880",
+      "BookName": "Computer network",
+      "Author": "shanvi devi",
+      "Category": "computer science",
+      "PublicationYear": "2030",
+      "NumberofBooks": "100"
+    },
+    {
+      "id": "257e",
+      "BookName": "AI",
+      "Author": "golu gupta",
+      "Category": "IT",
+      "PublicationYear": "2030",
+      "NumberofBooks": "50"
+    },
+    {
+      "id": "713b",
+      "BookName": "AI chatbot",
+      "Author": "golu gupta",
+      "Category": "IT",
+      "PublicationYear": "2030",
+      "NumberofBooks": "50"
+    },
+    {
+      "id": "a5e9",
+      "BookName": "Cloud Computing",
+      "Author": "golu gupta",
+      "Category": "IT",
+      "PublicationYear": "2030",
+      "NumberofBooks": "50"
     }
   ],
   "issuebook": [
     {
-      "id": "011a",
-      "BookName": "future",
-      "Author": "mr.love",
-      "Category": "AI",
-      "PublicationYear": "2029",
-      "studentid": "rakesh0810"
+      "id": "786a",
+      "BookName": "English",
+      "Author": "love gupta",
+      "Category": "English",
+      "PublicationYear": "2025",
+      "studentid": "mohit1208"
     },
     {
-      "id": "06db",
-      "BookName": "ppp",
-      "Author": "mr.love",
-      "Category": "AI",
-      "PublicationYear": "2029",
-      "studentid": "rakesh0810"
-    },
-    {
-      "id": "f321",
-      "BookName": "ttt",
-      "Author": "dyug",
-      "Category": "uiio",
-      "PublicationYear": "4754",
-      "studentid": "teeyf7"
+      "id": "925d",
+      "BookName": "computer fundamental",
+      "Author": "sanjay",
+      "Category": "computer science",
+      "PublicationYear": "2025",
+      "studentid": "mohit1208"
     }
   ]
 }
