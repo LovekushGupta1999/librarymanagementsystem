@@ -100,7 +100,7 @@ function adminwindow(){
   <div id="btn"></div>
   <div class="continer">
       
-      <form  onsubmit=" return fetchAdmindata()
+      <form  onsubmit=" return Adminlogin()
 ">
           <div class="from-group">
               <input type="email" id="input1" required>
@@ -146,7 +146,7 @@ function adminwindow(){
 // ...........................admin login.apply...........................................
 
 
-async function fetchAdmindata(){
+async function Adminlogin(){
   let res= await fetch ("http://localhost:3000/admin")
  let data= await res.json();
   data.map((admin)=>{
@@ -165,10 +165,10 @@ async function fetchAdmindata(){
       });
       let adminId=document.querySelector("#adminId");
       adminId.innerHTML= `Admin : ${admin.email}`; 
+      log="success"
       display();
       return true;
-      return true;
-      return true;
+     
     }
   }
 )
@@ -331,9 +331,9 @@ async function issuebookData() {
 //--------------------------------------------show books details-------------------------------------
 
 async function displayBook(){
-  let adminid=document.getElementById("adminId").innerText
 
-  if(adminid!=""){
+
+  if(log!=""){
   Swal.fire({
     title: 'books data ',
     width:'80%',
@@ -398,9 +398,8 @@ function delete_data(id){
 //--------------------------------------------show issued books details-------------------------------------
 
 async function displayissuedBook(){
-  let adminid=document.getElementById("adminId").innerText
 
-  if(adminid!=""){
+  if(log!=""){
   Swal.fire({
     title: 'Issued books data ',
     width:'80%',
@@ -453,9 +452,8 @@ document.getElementById("showdata").innerHTML=database;
 
 //------------------------------------display Author details-------------------------
 async function displayAuthor(){
-  let adminid=document.getElementById("adminId").innerText
 
-  if(adminid!=""){
+  if(log!=""){
   Swal.fire({
     title: 'Authors data ',
     width:'80%',
@@ -504,9 +502,7 @@ document.getElementById("showdata").innerHTML=database;
 
 //------------------------------------display categories of books-------------------------------
 async function displaycategory(){
-  let adminid=document.getElementById("adminId").innerText
-
-  if(adminid!=""){
+    if(log!=""){
   Swal.fire({
     title: 'Books Categories ',
     width:'80%',
@@ -558,9 +554,7 @@ async function displaycategory(){
 //-------------------------------------display user data in table------------------------------------
 
 async function displayuser(){
-  let adminid=document.getElementById("adminId").innerText
-
-  if(adminid!=""){
+  if(log!=""){
   Swal.fire({
     title: 'Users data ',
     width:'80%',
@@ -608,9 +602,8 @@ document.getElementById("showdata").innerHTML=database;
 
 //-----------------------------------------display admin data-------------------------
 async function displayadmin(){
-  let adminid=document.getElementById("adminId").innerText
 
-  if(adminid!=""){
+  if(log!=""){
   Swal.fire({
     title: 'Admin data ',
     width:'80%',
@@ -746,7 +739,7 @@ async function Insertuserdata(){
   
   // ...........................User login.apply...........................
 
-
+var log=""
 async function userlogin(){
   let res= await fetch ("http://localhost:3000/user")
   let data= await res.json();
@@ -766,7 +759,9 @@ async function userlogin(){
        });
        let adminId=document.querySelector("#userId");
        adminId.innerHTML= ` <i class="fa-solid fa-user-check"></i> ${user.email}` 
-      //  displayuserdata();
+       log="success";
+      
+       
        return true;
      }
    }
@@ -896,12 +891,14 @@ function UserRegisterwindow(){
 
 //----------------------------------user Account update-------------------------------------
 
-async function fetchaccountdata(useremid){
- 
-  let a= await fetch("http://localhost:3000/user");
+async function displayuserdata(){
+  let userid=document.getElementById("userid").innerText
+  
+  if(log!=""){
+  let a= await fetch(`http://localhost:3000/user/`);
   let b= await a.json();
-     b.map((data)=>{
-      if(data.email==useremid){
+  b.map((data)=>{
+         if(userid==data.email){
         Swal.fire({
           title: 'EDIT USER DATA  ',
           html:` <div id="editform">
@@ -931,12 +928,13 @@ async function fetchaccountdata(useremid){
       });
 }})
   }
-
-function accountdetails(){
-  let useremid=document.getElementById("userId").innerText
-  // console.log(useremid)
-  fetchaccountdata(useremid);
 }
+
+// function accountdetails(){
+//   let useremid=document.getElementById("userId").innerText
+//   console.log(useremid)
+//   fetchaccountdata(useremid);
+// }
 
 
 //-------------------------update user data----------------------------------
@@ -961,6 +959,6 @@ function updateuserData(id){
       body:JSON.stringify(update_data)
   }).then(r=>alert("updated.........!!"))
 
-  location.reload();
+
 }
 
