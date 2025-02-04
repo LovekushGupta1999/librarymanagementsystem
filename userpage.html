@@ -34,7 +34,7 @@
           <li class="submenu">
             <a href="#">User Profile</a>
             <ul class="submenu-items">
-              <li><a href="#" onclick="accountdetails()">Account</a></li>
+              <li><a href="#" onclick="displayuserdata()">Account</a></li>
               <!-- <li><a href="#"></a></li> -->
               <li><a href="#">Change Password</a></li>
             </ul>
@@ -81,12 +81,12 @@
     <div id="bigbox">
       <div class="box">
         <div id="heading">PROFILE</div>
-        <p>My Account <span id="nouser"></span></p>
-        <a href="#" onclick="displayuserdata()"></a><button id="btnlib1">View Account</button></a>
+        <p>My Account </p>
+        <a href="#" onclick="displayuserdata()"><button id="btnlib1">View Account</button></a>
       </div>
       <div class="box">
         <div id="heading">My IssueBooks</div>
-        <p>NO of Books: <span id="nobook"></span></p>
+        <p>NO of Books: <span id="issuebook"></span></p>
         <button id="btnlib2" onclick="displayissuedBook()">View All Book</button>
       </div>
       <div class="box">
@@ -101,7 +101,7 @@
       </div>
       <div class="box">
         <div id="heading">Magazines</div>
-        <p>Today magazines</p>
+        <p>Today magazines <span id="nomag"></span></p>
         <button id="btnlib5">View All magazines</button>
       </div>
       <!-- <div class="box">

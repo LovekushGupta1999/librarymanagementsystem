@@ -741,15 +741,14 @@ async function Insertuserdata(){
 
 var log=""
 async function userlogin(){
+  let loginEmail=document.querySelector("#input1").value;
+  let loginPass=document.getElementById("input2").value;
+
   let res= await fetch ("http://localhost:3000/user")
   let data= await res.json();
    data.map((user)=>{
  
- 
-     let loginEmail=document.getElementById("input1").value;
-     let loginPass=document.getElementById("input2").value;
- 
-     if(user.email==loginEmail && user.cpass==loginPass){
+    if(user.email==loginEmail && user.cpass==loginPass){
        Swal.fire({
          title: "Submitted",
          text: "You clicked the button!",
@@ -758,11 +757,10 @@ async function userlogin(){
         
        });
        let adminId=document.querySelector("#userId");
-       adminId.innerHTML= ` <i class="fa-solid fa-user-check"></i> ${user.email}` 
+       adminId.innerHTML= ` <i class="fa-solid fa-user-check"></i>${user.email}` 
        log="success";
-      
-       
-       return true;
+       displayuserinterfacedata()
+      return true;
      }
    }
  )
@@ -892,34 +890,35 @@ function UserRegisterwindow(){
 //----------------------------------user Account update-------------------------------------
 
 async function displayuserdata(){
-  let userid=document.getElementById("userid").innerText
+  let email=document.getElementById("userId").innerText
   
   if(log!=""){
-  let a= await fetch(`http://localhost:3000/user/`);
+  let a= await fetch(`http://localhost:3000/user`);
   let b= await a.json();
   b.map((data)=>{
-         if(userid==data.email){
+         if(data.email==email)
+        {
         Swal.fire({
-          title: 'EDIT USER DATA  ',
+          title: 'USER PROFILE',
           html:` <div id="editform">
          <div class="form-container">
+
+         <label for="usid">Id :</label>
+          <input type="text" value='${data.id}' id="usid" readonly><br>
       
-          <label for="usnam">Name</label>
+          <label for="usnam">Name :</label>
           <input type="text" value='${data.Uname}' id="usnam"><br>
       
-          <label for="mono">Contact NO.</label>
+          <label for="mono">Contact NO :</label>
           <input type="text"  value='${data.contactno}' id="mono"><br>
       
-           <label for="email">Category</label>
+           <label for="email">Email :</label>
           <input type="text"   value='${data.email}' id="email"><br>
       
-          <label for="cpass">Password</label>
+          <label for="cpass">Password :</label>
           <input type="text" value='${data.cpass}' id="cpass"><br>
       
-          // <label for="bnumber">Number of Books</label>
-          // <input type="number"  id="bnumber"><br>
-      
-          <button id="updatebtn" onclick="updateuserData(${data.id})">Update</button>
+       <button id="updatebtn" onclick="updateuserData(${data.id})">Update</button>
       </div>
       </div>
           `,
@@ -930,26 +929,20 @@ async function displayuserdata(){
   }
 }
 
-// function accountdetails(){
-//   let useremid=document.getElementById("userId").innerText
-//   console.log(useremid)
-//   fetchaccountdata(useremid);
-// }
 
 
 //-------------------------update user data----------------------------------
 function updateuserData(id){ 
   
   let update_data={
-      id: document.querySelector("#id1").value,
+      id: document.querySelector("#usid").value,
       Uname: document.querySelector("#usnam").value,
       contactno: document.querySelector("#mono").value,
       email:document.getElementById("email").value,
-      cpass:document.getElementById("cpass").value,
-      // date:document.getElementById("date1").value,
+      cpass:document.getElementById("cpass").value
   }
 
-  console.info(update_data)
+  // console.info(update_data)
 
   fetch(`http://localhost:3000/user/${id}`,{
       method:"PUT",
@@ -962,3 +955,16 @@ function updateuserData(id){
 
 }
 
+//-----------------------------display user interface details-----------
+async function displayuserinterfacedata(){
+  let issuebook=0
+let e= await fetch("http://localhost:3000/issuebook");
+let f= await e.json();
+f.map((data)=>{
+  issuebook=issuebook+1
+})
+document.getElementById("nomag").innerHTML="4"
+document.getElementById("noauthor").innerHTML="5"
+document.getElementById("nocate").innerHTML="10"
+document.getElementById("issuebook").innerHTML=issuebook;
+}

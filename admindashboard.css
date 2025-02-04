@@ -134,9 +134,11 @@
     width: 100%;
     height: 50px;
     background-color: rgb(116, 75, 38);
+    background: #6ae7c6;
     display: flex;
 align-items: center;
 padding-left: 50px;
+justify-content: left;
     
 }
 #dashboardbar li{
@@ -229,10 +231,13 @@ nav {
   }
   #adminId{
     position: relative;
+    color: #22f806;
     top: 12px;
+    
   }  
   #userId{
     position: relative;
+    color: #22f806;
     top: 12px;
   }  
 
@@ -240,10 +245,7 @@ nav {
     height: 480px;
   }
 
-  #dashboardbar{
-    justify-content: left;
-    background-color: #FBEAEB;
-  }
+ 
  
   
   *{
@@ -281,7 +283,9 @@ body{
   margin-left: -8rem;
   margin-right: 4rem;
 
-  background: rgba(56, 26, 192, 0.548);
+  /* background: rgba(56, 26, 192, 0.993); */
+  /* background: #205a28e5; */
+  background: #106EBE;
 
   backdrop-filter: blur(10px);
 
@@ -479,10 +483,11 @@ label {
   color: #333;
 }
 
-#bookn, 
+#bookn,
+#usnam, 
 #author, 
 #category,
-#date1, 
+#date1,#mono,#email,#cpass,#usid,
 #bnumber,
 #stuid{
   width: 100%;
@@ -494,7 +499,7 @@ label {
   transition: border-color 0.3s;
 }
 
-#bookn:focus,
+#usnam,#mono,#email,#cpass,#usid, #bookn:focus,
 #author:focus,
 #category:focus,
 #date1:focus,
