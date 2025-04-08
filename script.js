@@ -100,7 +100,7 @@ function adminwindow(){
   <div id="btn"></div>
   <div class="continer">
       
-      <form  onsubmit=" return Adminlogin()
+      <form  onsubmit="return Adminlogin()
 ">
           <div class="from-group">
               <input type="email" id="input1" required>
@@ -147,13 +147,16 @@ function adminwindow(){
 
 
 async function Adminlogin(){
+
+  
+  let loginEmail=document.getElementById("input1").value;
+  let loginPass=document.getElementById("input2").value;
+
+
   let res= await fetch ("http://localhost:3000/admin")
- let data= await res.json();
+  let data= await res.json();
   data.map((admin)=>{
 
-
-    let loginEmail=document.getElementById("input1").value;
-    let loginPass=document.getElementById("input2").value;
 
     if(admin.email==loginEmail && admin.pass==loginPass){
       Swal.fire({
@@ -165,13 +168,14 @@ async function Adminlogin(){
       });
       let adminId=document.querySelector("#adminId");
       adminId.innerHTML= `Admin : ${admin.email}`; 
-      log="success"
+      log=true
       display();
       return true;
      
     }
   }
 )
+        
         Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -180,7 +184,7 @@ async function Adminlogin(){
           });
         return false;
     
-        }
+}
 
 
 
@@ -205,8 +209,8 @@ function addbookwindow(){
   Swal.fire({
     title: 'INSERT BOOK DATA  ',
     html:` <div id="editform">
-   <form class="form-container"  onsubmit= " return insertlibraryData()">
-
+   
+<form action="#" onsubmit="return insertlibraryData()">
     <label for="bookn">Book Name</label>
     <input type="text"  id="bookn"><br>
 
@@ -222,12 +226,12 @@ function addbookwindow(){
     <label for="bnumber">Number of Books</label>
     <input type="number"  id="bnumber"><br>
 
-    <button id="updatebtn" type="submit" >Update</button>
+    <input id="updatebtn" type="submit"    value="Update" >
 </form>
 </div>
     `,
     // icon: 'info',
-    confirmButtonText: 'Close'
+    // confirmButtonText: 'Close'
 });
   }
 }
@@ -249,16 +253,13 @@ async function insertlibraryData() {
     headers:{'content-type':'application/json'},
     body: JSON.stringify(libraryData)
 
-  }).then(r=>Swal.fire({
-    title: "Submitted",
-    text: "You clicked the button!",
-    icon: "success",
-    confirmButtonText: "ok"
+  }).then(r=>alert("update book")
+    
    
-  }));
+  );
   
-  preventDefault();
-  return true;
+  // preventDefault();
+  return false;
 
   
 }
@@ -266,11 +267,11 @@ async function insertlibraryData() {
 function issuebookwindow(){
   let adminid=document.getElementById("adminId").innerText
 
-  if(adminid!=""){
-
-  Swal.fire({
-    title: 'INSERT BOOK DATA  ',
-    html:` <div id="editform">
+  if(log!=false){
+    document.getElementById("updatesection").classList.toggle('updatesection')
+  // Swal.fire({
+    // title: 'INSERT BOOK DATA  ',
+    document.getElementById("updatesection").innerHTML=` <div id="editform">
    <div class="form-container">
 
     <label for="bookn">Book Name</label>
@@ -285,16 +286,17 @@ function issuebookwindow(){
     <label for="date1">Publication Year</label>
     <input type="number"  id="date1"><br>
 
-    <label for="stuid">Student Id</label>
-    <input type="text"  id="stuid"><br>
+    <label for="stuid">Student Email</label>
+    <input type="email"  id="stuid"><br>
 
     <button id="updatebtn" onclick="issuebookData()">Issued</button>
 </div>
 </div>
-    `,
+    `
+    // ,
     // icon: 'info',
-    confirmButtonText: 'Close'
-});
+    // confirmButtonText: 'Close'
+// });
   }
 }
 
@@ -333,7 +335,7 @@ async function issuebookData() {
 async function displayBook(){
 
 
-  if(log!=""){
+  if(log!=false){
   Swal.fire({
     title: 'books data ',
     width:'80%',
@@ -395,11 +397,44 @@ function delete_data(id){
   }));
 }
 
+function delete_issuedata(id){
+  fetch(`http://localhost:3000/issuebook/${id}`,{
+      method: "DELETE"
+  }).then(r=>Swal.fire({
+    title: "DELETED",
+    text: "You clicked the button!",
+    icon: "success",
+    confirmButtonText: "ok"
+   
+  }));
+}
+function delete_userdata(id){
+  fetch(`http://localhost:3000/user/${id}`,{
+      method: "DELETE"
+  }).then(r=>Swal.fire({
+    title: "DELETED",
+    text: "You clicked the button!",
+    icon: "success",
+    confirmButtonText: "ok"
+   
+  }));
+}
+function delete_admindata(id){
+  fetch(`http://localhost:3000/user/${id}`,{
+      method: "DELETE"
+  }).then(r=>Swal.fire({
+    title: "DELETED",
+    text: "You clicked the button!",
+    icon: "success",
+    confirmButtonText: "ok"
+   
+  }));
+}
 //--------------------------------------------show issued books details-------------------------------------
 
 async function displayissuedBook(){
 
-  if(log!=""){
+  if(log!=false){
   Swal.fire({
     title: 'Issued books data ',
     width:'80%',
@@ -437,7 +472,7 @@ async function displayissuedBook(){
 <td>${data.Category}</td>
 <td>${data.PublicationYear}</td>
 <td>${data.studentid}</td>
-<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<td><button onclick="delete_issuedata('${data.id}')"><i class="fa-solid fa-trash"></i></button>
 <button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
 
 </tr>
@@ -453,7 +488,7 @@ document.getElementById("showdata").innerHTML=database;
 //------------------------------------display Author details-------------------------
 async function displayAuthor(){
 
-  if(log!=""){
+  if(log!=false){
   Swal.fire({
     title: 'Authors data ',
     width:'80%',
@@ -502,7 +537,7 @@ document.getElementById("showdata").innerHTML=database;
 
 //------------------------------------display categories of books-------------------------------
 async function displaycategory(){
-    if(log!=""){
+    if(log!=false){
   Swal.fire({
     title: 'Books Categories ',
     width:'80%',
@@ -529,32 +564,31 @@ async function displaycategory(){
 
 
   
-//   let a= await fetch("http://localhost:3000/libraryData");
-//   let b= await a.json();
-//   let database= b.map((data)=>
+  let a= await fetch("http://localhost:3000/libraryData");
+  let b= await a.json();
+  let database= b.map((data)=> {    
+    if(data.Category.toLowerCase()!="mathematics" && "science" && "english" && "sanskrit" && "general science" && "computer science" && "hindi"){
+
+`
+
+<tr>
  
-//   // if(data.Category!="mathematics" && "science" && "english" && "sanskrit" && "general science" && "computer science" && "hindi"){
-
-// `
-
-// <tr>
- 
-//   <td>${data.Category}</td>
+  <td>${data.Category}</td>
   
-// <td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
-// <button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
+<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
 
-// </tr
-// </table>`).join(" ")
-// document.getElementById("showdata").innerHTML +=database;
+</tr>`}}).join(" ")
+document.getElementById("showdata").innerHTML +=database;
 
-  
+    }
   }
-}
+
+
 //-------------------------------------display user data in table------------------------------------
 
 async function displayuser(){
-  if(log!=""){
+  if(log!=false){
   Swal.fire({
     title: 'Users data ',
     width:'80%',
@@ -589,7 +623,7 @@ async function displayuser(){
 <td>${data.contactno}</td>
 <td>${data.email}</td>
 <td>${data.cpass}</td>
-<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<td><button onclick="delete_userdata('${data.id}')"><i class="fa-solid fa-trash"></i></button>
 <button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
 
 </tr>
@@ -603,7 +637,7 @@ document.getElementById("showdata").innerHTML=database;
 //-----------------------------------------display admin data-------------------------
 async function displayadmin(){
 
-  if(log!=""){
+  if(log!=false){
   Swal.fire({
     title: 'Admin data ',
     width:'80%',
@@ -639,7 +673,7 @@ async function displayadmin(){
 <td>${data.adname}</td>
 <td>${data.email}</td>
 <td>${data.cpass}</td>
-<td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+<td><button onclick="delete_admindata('${data.id}')"><i class="fa-solid fa-trash"></i></button>
 <button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
 
 </tr>
@@ -657,7 +691,7 @@ async function display(){
 
  let book=0
  let author=0
- let Category=4
+ let Category=7
 let a= await fetch("http://localhost:3000/libraryData");
 let b= await a.json();
 b.map((data)=>{
@@ -667,9 +701,12 @@ b.map((data)=>{
   if(data.Author!=""){
     author=author+1;
   }
-  if(data.Category!="mathematics" && "science" && "english" && "sanskrit" && "gs" && "hindi"){
+  if(data.Category.toLowerCase()!="mathematics" && "computer science" && "science" && "english" && "sanskrit" && "gs" && "hindi" && "it"){
     Category=Category+1;
   }
+ 
+  
+
 }
 )
 
@@ -739,7 +776,7 @@ async function Insertuserdata(){
   
   // ...........................User login.apply...........................
 
-var log=""
+var log=false
 async function userlogin(){
   let loginEmail=document.querySelector("#input1").value;
   let loginPass=document.getElementById("input2").value;
@@ -758,7 +795,7 @@ async function userlogin(){
        });
        let adminId=document.querySelector("#userId");
        adminId.innerHTML= ` <i class="fa-solid fa-user-check"></i>${user.email}` 
-       log="success";
+       log=true;
        displayuserinterfacedata()
       return true;
      }
@@ -892,7 +929,7 @@ function UserRegisterwindow(){
 async function displayuserdata(){
   let email=document.getElementById("userId").innerText
   
-  if(log!=""){
+  if(log!=false){
   let a= await fetch(`http://localhost:3000/user`);
   let b= await a.json();
   b.map((data)=>{
@@ -956,15 +993,84 @@ function updateuserData(id){
 }
 
 //-----------------------------display user interface details-----------
-async function displayuserinterfacedata(){
+async function displayuserissuedbook(){
+  let email=document.getElementById("userId").innerText
+  
+  Swal.fire({
+    title: 'Issued books data ',
+      width:'80%',
+      html: `<div id="table_data">
+      <table style="border= 2px solid black">
+      <thead> 
+      <th>Book Name</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Publication</th>
+      <th>Number of Books</th>
+      <th>Operation</th>
+      </thead>
+  
+      <tbody id="showdata">  </tbody>
+      </table>
+      </div>
+      `,
+      // icon: 'info',
+      confirmButtonText: 'Close'
+  });
+  
   let issuebook=0
-let e= await fetch("http://localhost:3000/issuebook");
-let f= await e.json();
-f.map((data)=>{
-  issuebook=issuebook+1
-})
+  
+  let database=""
+    let a= await fetch("http://localhost:3000/issuebook");
+    let b= await a.json();
+     b.map((data)=>{
+     
+      console.log(data.studentid)
+      
+      if(data.studentid==email)
+        {
+          issuebook=issuebook+1
+          database+= `
+  
+  <tr>
+  
+  <td>${data.BookName}</td>
+  <td>${data.Author}</td>
+  <td>${data.Category}</td>
+  <td>${data.PublicationYear}</td>
+  <td>${data.studentid}</td>
+  <td><button onclick="delete_data('${data.id}')"><i class="fa-solid fa-trash"></i></button>
+  <button onclick="edit('${data.id}')"><i class="fa-solid fa-user-pen"></i></button></td>
+  
+  </tr>
+  </table>`}})
+  document.getElementById("showdata").innerHTML=database;
+  
+  
+}
+
+
+
+// let e= await fetch("http://localhost:3000/issuebook");
+// let f= await e.json();
+// f.map((data)=>{
+  //   issuebook=issuebook+1
+  // })
+  async function displayuserinterfacedata(){
+    let email=document.getElementById("userId").innerText
+    let issuebook=0
+  
+      let a= await fetch("http://localhost:3000/issuebook");
+      let b= await a.json();
+       b.map((data)=>{
+       if(data.studentid==email)
+    {
+      issuebook=issuebook+1}})
+    
+    document.getElementById("isbook").innerText=issuebook;
 document.getElementById("nomag").innerHTML="4"
 document.getElementById("noauthor").innerHTML="5"
 document.getElementById("nocate").innerHTML="10"
-document.getElementById("issuebook").innerHTML=issuebook;
 }
+
+

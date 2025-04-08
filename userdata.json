@@ -156,38 +156,102 @@
       "NumberofBooks": "50"
     },
     {
-      "id": "713b",
-      "BookName": "AI chatbot",
-      "Author": "golu gupta",
-      "Category": "IT",
-      "PublicationYear": "2030",
-      "NumberofBooks": "50"
-    },
-    {
       "id": "a5e9",
       "BookName": "Cloud Computing",
       "Author": "golu gupta",
       "Category": "IT",
       "PublicationYear": "2030",
       "NumberofBooks": "50"
+    },
+    {
+      "id": "60f0",
+      "BookName": "Cloud Computing",
+      "Author": "golu gupta",
+      "Category": "IT",
+      "PublicationYear": "2030",
+      "NumberofBooks": "42"
+    },
+    {
+      "id": "95cb",
+      "BookName": "Cloud Computing",
+      "Author": "golu gupta",
+      "Category": "IT",
+      "PublicationYear": "2030",
+      "NumberofBooks": "45"
+    },
+    {
+      "id": "fa81",
+      "BookName": "Computer network",
+      "Author": "shanvi devi",
+      "Category": "computer science",
+      "PublicationYear": "2030",
+      "NumberofBooks": "47"
+    },
+    {
+      "id": "d9a8",
+      "BookName": "Computer network",
+      "Author": "shanvi devi",
+      "Category": "computer science",
+      "PublicationYear": "2030",
+      "NumberofBooks": "51"
+    },
+    {
+      "id": "2e8f",
+      "BookName": "hindi",
+      "Author": "prem chand",
+      "Category": "Hindi",
+      "PublicationYear": "2008",
+      "NumberofBooks": "100"
+    },
+    {
+      "id": "027b",
+      "BookName": "science gs",
+      "Author": "sanjay",
+      "Category": "Science",
+      "PublicationYear": "2015",
+      "NumberofBooks": "50"
+    },
+    {
+      "id": "73b2",
+      "BookName": "",
+      "Author": "",
+      "Category": "",
+      "PublicationYear": "",
+      "NumberofBooks": "100"
     }
   ],
   "issuebook": [
     {
-      "id": "786a",
-      "BookName": "English",
-      "Author": "love gupta",
-      "Category": "English",
-      "PublicationYear": "2025",
-      "studentid": "mohit1208"
+      "id": "d015",
+      "BookName": "DBMS",
+      "Author": "shiva thakur",
+      "Category": "computer science",
+      "PublicationYear": "2026",
+      "studentid": "love@111"
     },
     {
-      "id": "925d",
+      "id": "c80d",
       "BookName": "computer fundamental",
-      "Author": "sanjay",
+      "Author": "shiva thakur",
       "Category": "computer science",
-      "PublicationYear": "2025",
-      "studentid": "mohit1208"
+      "PublicationYear": "2026",
+      "studentid": "mohit@123"
+    },
+    {
+      "id": "24ea",
+      "BookName": "computer ",
+      "Author": "shiva thakur",
+      "Category": "computer science",
+      "PublicationYear": "2026",
+      "studentid": "mohit@123"
+    },
+    {
+      "id": "ca4d",
+      "BookName": "computer ",
+      "Author": "shiva thakur",
+      "Category": "computer science",
+      "PublicationYear": "2026",
+      "studentid": "mohit@123"
     }
   ]
 }
